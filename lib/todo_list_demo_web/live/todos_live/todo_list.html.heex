@@ -1,1 +1,1 @@
-<todo-list items={@todo_items |> Jason.encode!}></todo-list>
+<todo-list id="todolist" phx-hook="PhoenixCustomEvent" phx-send-events="add_todo" items={@todo_items |> Jason.encode!}></todo-list>
