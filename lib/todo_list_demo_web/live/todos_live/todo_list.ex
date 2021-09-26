@@ -21,4 +21,10 @@ defmodule TodoListDemoWeb.TodosLive.TodoList do
      socket
      |> assign(todo_items: todo_items ++ [%{item: item, due_date: Date.from_iso8601!(due_date)}])}
   end
+
+  def build_events(events) do
+    events
+    |> Enum.map(fn %{item: item, due_date: due_date} -> %{title: item, start: due_date} end)
+    |> Jason.encode!()
+  end
 end
