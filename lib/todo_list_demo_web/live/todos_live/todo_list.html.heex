@@ -1,1 +1,2 @@
+<todo-calendar events={@todo_items |> build_events()} phx-update="ignore"></todo-calendar>
 <todo-list id="todolist" phx-hook="PhoenixCustomEvent" phx-send-events="add_todo" items={@todo_items |> Jason.encode!}></todo-list>
