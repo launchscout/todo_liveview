@@ -10,7 +10,8 @@ defmodule TodoListDemoWeb.Endpoint do
     signing_salt: "/+R+U8xo"
   ]
 
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  # socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  socket "/live_element", LiveElement.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -31,9 +32,9 @@ defmodule TodoListDemoWeb.Endpoint do
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :todo_list_demo
   end
 
-  plug Phoenix.LiveDashboard.RequestLogger,
-    param_key: "request_logger",
-    cookie_key: "request_logger"
+  # plug Phoenix.LiveDashboard.RequestLogger,
+  #   param_key: "request_logger",
+  #   cookie_key: "request_logger"
 
   plug Plug.RequestId
   plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]

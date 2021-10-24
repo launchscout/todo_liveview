@@ -1,2 +1,9 @@
-<todo-calendar events={@todo_items |> build_events()} phx-update="ignore"></todo-calendar>
-<todo-list id="todolist" phx-hook="PhoenixCustomEvent" phx-send-events="add_todo" items={@todo_items |> Jason.encode!}></todo-list>
+<ul>
+  <%= for %{item: item} <- @todo_items do %>
+    <li><%= item %></li>
+  <% end %>
+</ul>
+<form phx-submit="add_todo">
+  <label>To do:<input name="todo" /></label>
+  <button type="submit">Add item</button>
+</form>
